@@ -5,6 +5,7 @@
       
 <h:head>
     <title>JSF Tomcat 10</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css"/>
 </h:head>
 <h:body>
 	<div class="form-container">
@@ -35,9 +36,10 @@
 	    	
 	    		
 	    		
-	    		
 	    		<h:outputLabel  for="issue" value="Issue description"/>
-	    		<h:inputText  id="os" required="true"/>
+	    		<h:inputTextarea id="issue" rows="3" cols="20" />
+	    		
+	    		 <h:commandButton value="Submit"/>
 	    	
 	    </h:form>
  	</div>
