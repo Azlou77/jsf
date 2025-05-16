@@ -1,10 +1,47 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      
 <h:head>
     <title>JSF Tomcat 10</title>
 </h:head>
 <h:body>
-    <h2>#{helloBean.message}</h2>
+	<div class="form-container">
+	    <h2>Support Technique</h2>
+	    <h:form>
+	    		<h:outputLabel for="lastname" value="Lastname"/>
+	    		<h:inputText  id="lastname" required="true" />
+	    			 
+	    		<h:outputLabel for="firstname" value="Firstname"/>
+	    		<h:inputText  id="firstname" required="true"/>
+	    		
+	    		<h:outputLabel  for="email" value="Email"/>
+	    		<h:inputText  id="email" required="true" />
+	    	
+	    		<h:outputLabel for="phone"  value="Phone"/>
+	    		<h:inputText id="phone"/>
+	    		
+	    		
+	    		<h:outputLabel  for="sofware" value="Software"/>
+	    		<h:selectOneListbox value="#{saisieOptions.software}" id="software">
+  					<f:selectItems value="#{saisieOptions.softwareItems}" />
+				</h:selectOneListbox>
+				
+				<h:outputLabel  for="os" value="os"/>
+	    		<h:selectOneListbox value="#{saisieOptions.os}" id="os">
+  					<f:selectItems value="#{saisieOptions.osItems}" />
+				</h:selectOneListbox>
+	    	
+	    		
+	    		
+	    		
+	    		<h:outputLabel  for="issue" value="Issue description"/>
+	    		<h:inputText  id="os" required="true"/>
+	    	
+	    </h:form>
+ 	</div>
+    
+  
 </h:body>
 </html>
