@@ -1,49 +1,67 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
-      
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
 <h:head>
-    <title>JSF Tomcat 10</title>
-    <link href="css/style.css" rel="stylesheet" type="text/css"/>
+	<title>JSF Tomcat 10</title>
+	<link href="css/style.css" rel="stylesheet" type="text/css" />
 </h:head>
 <h:body>
 	<div class="form-container">
-	    <h2>Support Technique</h2>
-	    <h:form>
-	    		<h:outputLabel for="lastname" value="Lastname"/>
-	    		<h:inputText  id="lastname" required="true" />
-	    			 
-	    		<h:outputLabel for="firstname" value="Firstname"/>
-	    		<h:inputText  id="firstname" required="true"/>
-	    		
-	    		<h:outputLabel  for="email" value="Email"/>
-	    		<h:inputText  id="email" required="true" />
-	    	
-	    		<h:outputLabel for="phone"  value="Phone"/>
-	    		<h:inputText id="phone"/>
-	    		
-	    		
-	    		<h:outputLabel  for="sofware" value="Software"/>
-	    		<h:selectOneListbox value="#{saisieOptions.software}" id="software">
-  					<f:selectItems value="#{saisieOptions.softwareItems}" />
-				</h:selectOneListbox>
-				
-				<h:outputLabel  for="os" value="os"/>
-	    		<h:selectOneListbox value="#{saisieOptions.os}" id="os">
-  					<f:selectItems value="#{saisieOptions.osItems}" />
-				</h:selectOneListbox>
-	    	
-	    		
-	    		
-	    		<h:outputLabel  for="issue" value="Issue description"/>
-	    		<h:inputTextarea id="issue" rows="3" cols="20" />
-	    		
-	    		 <h:commandButton value="Submit"/>
-	    	
-	    </h:form>
- 	</div>
-    
-  
+		<h2>Support Technique</h2>
+		<h:form prependId="false">
+			<h:outputLabel for="lastname" value="Lastname" />
+			<h:inputText id="lastname"  required="true">
+				<f:validateRegex pattern="[A-Za-z]" />
+			</h:inputText>
+			<h:message for="lastname" style="color:red" />
+
+			<h:outputLabel for="firstname" value="Firstname" />
+			<h:inputText id="firstname"  required="true">
+				<f:validateRegex pattern="[A-Za-z]" />
+			</h:inputText>
+			<h:message for="firstname" style="color:red" />
+
+			<h:outputLabel for="email" value="Email" />
+			<h:inputText id="email"  required="true" />
+			<h:message for="email" style="color:red" />
+
+			<h:outputLabel for="phone" value="Phone" />
+			<h:inputText id="phone"  required="true" >
+				<f:validateRegex pattern="[0-9]" />
+			</h:inputText>
+			<h:message for="phone" style="color:red" />
+
+			<h:outputLabel for="software" value="Software" />
+			<h:selectOneMenu id="software" 
+				required="true">
+				<f:selectItem itemValue="photoshop" itemLabel="Photoshop" />
+				<f:selectItem itemValue="vscode" itemLabel="Vscode" />
+				<f:selectItem itemValue="eclipse" itemLabel="Eclipse" />
+				<f:selectItem itemValue="autres" itemLabel="Autres" />
+			</h:selectOneMenu>
+			<h:message for="software" style="color:red" />
+
+			<h:outputLabel for="os" value="OS" />
+			<h:selectOneMenu id="os" required="true">
+				<f:selectItem itemValue="macos" itemLabel="MacOS" />
+				<f:selectItem itemValue="windows" itemLabel="Windows" />
+				<f:selectItem itemValue="linux" itemLabel="Linux" />
+				<f:selectItem itemValue="autres" itemLabel="Autres" />
+			</h:selectOneMenu>
+			<h:message for="os" style="color:red" />
+
+			<h:outputLabel for="issue" value="Issue description" />
+			<h:inputTextarea id="issue"  required="true"
+				rows="3" cols="20" />
+			<h:message for="issue" style="color:red" />
+
+			<h:commandButton value="Submit" />
+		</h:form>
+
+	</div>
+
+
 </h:body>
 </html>
